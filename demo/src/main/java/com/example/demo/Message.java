@@ -3,13 +3,14 @@ package com.example.demo;
 import java.util.Objects;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 class Message {
     
-    private @Id @GeneratedValue Long id;
+    @Id
+    private String messageId;
+    
     private String headline;
     private String text;
     private String hyperlink;
@@ -25,8 +26,8 @@ class Message {
         this.author = author;
     }
 
-    public Long getId() {
-        return this.id;
+    public String getId() {
+        return this.messageId;
     }
 
     public String getHeadline() {
@@ -45,8 +46,8 @@ class Message {
         return this.author;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(String id) {
+        this.messageId = id;
     }
 
     public void setHeadline(String headline) {
@@ -73,19 +74,19 @@ class Message {
         if (!(o instanceof Message))
         return false;
         Message message = (Message) o;
-        return Objects.equals(this.id, message.id) && Objects.equals(this.headline, message.headline)
+        return Objects.equals(this.messageId, message.messageId) && Objects.equals(this.headline, message.headline)
             && Objects.equals(this.text, message.text) && Objects.equals(this.hyperlink, message.hyperlink) 
             && Objects.equals(this.author, message.author);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.headline, this.text, this.hyperlink, this.author);
+        return Objects.hash(this.messageId, this.headline, this.text, this.hyperlink, this.author);
     }
 
     @Override
     public String toString() {
-        return "Message{" + "id=" + this.id + ", headline='" + this.headline + '\'' + ", text='" 
+        return "Message{" + "id=" + this.messageId + ", headline='" + this.headline + '\'' + ", text='" 
         + this.text + '\'' + ", hyperlink='" + this.hyperlink + '\'' + ", author='" + this.author + '}';
     }
 }

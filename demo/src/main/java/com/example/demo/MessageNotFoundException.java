@@ -2,7 +2,7 @@ package com.example.demo;
 
 class MessageNotFoundException extends RuntimeException {
 
-    MessageNotFoundException(Long id) {
+    MessageNotFoundException(Integer id) {
         super("Could not find message " + id);
     }
 }

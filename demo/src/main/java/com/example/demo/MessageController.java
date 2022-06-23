@@ -10,58 +10,44 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @RestController
 class MessageController {
 
-    private final MessageRepository repository;
-
-    MessageController(MessageRepository repository) {
-
-        this.repository = repository;
-
-    }
+    @Autowired
+    private MessageService messageService;
 
     @GetMapping("/messages")
     List<Message> all() {
 
-        return repository.findAll();
+        return messageService.findAllMessages();
 
     }
 
     @PostMapping("/messages")
     Message newMessage(@RequestBody Message newMessage) {
 
-        return repository.save(newMessage);
+        return messageService.saveMessage(newMessage);
 
     }
 
     @GetMapping("/messages/{id}")
     Message one(@PathVariable Long id) {
 
-        return repository.findById(id)
-            .orElseThrow(() -> new MessageNotFoundException(id));
+        return messageService.findMessageById(id);
 
     }
 
     @PutMapping("/messages/{id}")
     Message replaceMessage(@RequestBody Message newMessage, @PathVariable Long id) {
 
-        return repository.findById(id)
-            .map(message -> {
-                message.setHeadline(newMessage.getHeadline());
-                message.setText(newMessage.getText());
-                message.setHyperlink(newMessage.getHyperlink());
-                message.setAuthor(newMessage.getAuthor());
-                return repository.save(message);
-            })
-            .orElseGet(() -> {
-                newMessage.setId(id);
-                return repository.save(newMessage);
-            });
+        return messageService.updateMessageById(newMessage);
+
     }
 
     @DeleteMapping("/messages/{id}")
     void deleteMessage(@PathVariable Long id) {
-        repository.deleteById(id);
+        messageService.deleteMessageById(id);
     }
 }
