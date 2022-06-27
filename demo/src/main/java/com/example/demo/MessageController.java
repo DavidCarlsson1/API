@@ -32,22 +32,22 @@ class MessageController {
 
     }
 
-    @GetMapping("/messages/{id}")
-    Message one(@PathVariable Long id) {
+    @GetMapping("/messages/{id2}")
+    Message one(@PathVariable Integer id2) {
 
-        return messageService.findMessageById(id);
-
-    }
-
-    @PutMapping("/messages/{id}")
-    Message replaceMessage(@RequestBody Message newMessage, @PathVariable Long id) {
-
-        return messageService.updateMessageById(newMessage);
+        return messageService.findMessageById2(id2);
 
     }
 
-    @DeleteMapping("/messages/{id}")
-    void deleteMessage(@PathVariable Long id) {
-        messageService.deleteMessageById(id);
+    @PutMapping("/messages/{id2}")
+    Message replaceMessage(@RequestBody Message newMessage, @PathVariable Integer id2) {
+
+        return messageService.updateMessageById2(newMessage);
+
+    }
+
+    @DeleteMapping("/messages/{id2}")
+    void deleteMessage(@PathVariable Integer id2) {
+        messageService.deleteMessageById2(id2);
     }
 }

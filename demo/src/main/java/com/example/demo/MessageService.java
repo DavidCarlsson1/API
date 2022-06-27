@@ -6,12 +6,12 @@ public interface MessageService {
 
     List<Message> findAllMessages();
 
-    Message findMessageById(Long id);
-
     Message saveMessage(Message message);
 
-    void deleteMessageById(Long id);
+    Message findMessageById2(Integer id);
 
-    Message updateMessageById(Message message);
+    void deleteMessageById2(Integer id);
+
+    Message updateMessageById2(Message message);
 
 }
