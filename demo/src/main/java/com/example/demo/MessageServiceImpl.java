@@ -25,15 +25,15 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public Message saveMessage(Message message) {
-        println("1");
-        Message messageDb = this.messageRepository.findFirstByOrderByMessageIdDesc();
-        println("2");
-        if (messageDb != null) {
+        System.out.println("1");
+        Message messageDb = this.messageRepository.findFirstByOrderById2Desc();
+        System.out.println("2");
+        if ((messageDb != null) && (messageDb.getId2() != null)) {
             message.setId2(messageDb.getId2() + 1);
-            println("3");
+            System.out.println("3");
         } else {
             message.setId2(1);
-            println("4");
+            System.out.println("4");
         }
 
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -46,7 +46,7 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public void deleteMessageById2(Integer id) {
-        messageRepository.deleteMessageById(id);
+        messageRepository.deleteMessageById2(id);
     }
 
     @Override
