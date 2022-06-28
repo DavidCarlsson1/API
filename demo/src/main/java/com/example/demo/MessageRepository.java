@@ -7,6 +7,10 @@ interface MessageRepository extends MongoRepository<Message, String> {
 
     Message findByMessageId(long id);
 
-    Message deleteMessageById(long id);
+    Message deleteMessageById2(long id);
+
+    Message findFirstByOrderById2Desc();
+
+    Message findById2(Integer id);
     
 }
