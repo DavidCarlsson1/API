@@ -31,7 +31,7 @@ public class SwaggerConfig {
       return new ApiInfoBuilder()
         .title("Open communication API created by CSN")
         .description("To be used by CSN to spread information to stakeholders through external websites")
-        .termsOfServiceUrl("http://javainuse.com")
+        .termsOfServiceUrl("https://www.csn.se/")
         .contact(new Contact("David Carlsson", "", "david.carlsson@csn.se"))
         .license("Apache License")
           .licenseUrl("https://apache.org/licenses/LICENSE-2.0")
