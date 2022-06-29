@@ -1,3 +1,5 @@
+/*
+
 package com.example.demo;
 
 import org.slf4j.Logger;
@@ -15,8 +17,10 @@ class LoadDatabase {
     CommandLineRunner initDatabase(MessageRepository repository) {
 
         return args -> {
-            log.info("Preloading" + repository.save(new Message("Viktiga datum för elever", "1/1-22, 3/7-22, 24/12-22", "www.csn.se/viktigadatumelever", "David Carlsson")));
-            log.info("Preloading" + repository.save(new Message("Viktiga datum för studenter", "1/1-22, 3/4-22, 31/8-22", "www.csn.se/viktigadatumstudenter", "Mikolaj Wagner")));
+            log.info("Preloading" + repository.save(new Message("Viktiga datum för elever", "1/1-22, 3/7-22, 24/12-22", "www.csn.se/viktigadatumelever", "David Carlsson", "2022-01-01", "2022-12-12")));
+            log.info("Preloading" + repository.save(new Message("Viktiga datum för studenter", "1/1-22, 3/4-22, 31/8-22", "www.csn.se/viktigadatumstudenter", "Mikolaj Wagner", "2022-01-01", "2022-12-12")));
         };
     }
 }
+
+*/
