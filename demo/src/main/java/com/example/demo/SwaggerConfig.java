@@ -29,10 +29,10 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
       return new ApiInfoBuilder()
-        .title("Open communication API created by CSN")
-        .description("To be used by CSN to spread information to stakeholders through external websites")
+        .title("Open communication API created for CSN")
+        .description("To be used by CSN for spreading information to stakeholders through external websites")
         .termsOfServiceUrl("https://www.csn.se/")
-        .contact(new Contact("David Carlsson", "", "david.carlsson@csn.se"))
+        .contact(new Contact("David Carlsson & Mikolaj Wagner", "", "david.carlsson@csn.se & mikolaj.wagner@csn.se"))
         .license("Apache License")
           .licenseUrl("https://apache.org/licenses/LICENSE-2.0")
         .version("1.0")

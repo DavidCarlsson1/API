@@ -19,7 +19,7 @@ class MessageController {
     private MessageService messageService;
 
     @GetMapping("/messages")
-    List<Message> all() {
+    List<Message> getAllMessages() {
 
         return messageService.findAllMessages();
 
@@ -33,7 +33,7 @@ class MessageController {
     }
 
     @GetMapping("/messages/{id2}")
-    Message one(@PathVariable Integer id2) {
+    Message getOneMessage(@PathVariable Integer id2) {
 
         return messageService.findMessageById2(id2);
 
