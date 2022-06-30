@@ -1,0 +1,264 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "To be used by CSN for spreading information to stakeholders through external websites",
+        "version": "1.0",
+        "title": "Open communication API created for CSN",
+        "termsOfService": "https://www.csn.se/",
+        "contact": {
+            "name": "David Carlsson & Mikolaj Wagner",
+            "email": "david.carlsson@csn.se & mikolaj.wagner@csn.se"
+        },
+        "license": {
+            "name": "Apache License",
+            "url": "https://apache.org/licenses/LICENSE-2.0"
+        }
+    },
+    "host": "localhost:8081",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "message-controller",
+            "description": "Message Controller"
+        }
+    ],
+    "paths": {
+        "/messages": {
+            "get": {
+                "tags": [
+                    "message-controller"
+                ],
+                "summary": "getAllMessages",
+                "operationId": "getAllMessagesUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Message"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "message-controller"
+                ],
+                "summary": "newMessage",
+                "operationId": "newMessageUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "newMessage",
+                        "description": "newMessage",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Message"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Message"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/messages/{id2}": {
+            "get": {
+                "tags": [
+                    "message-controller"
+                ],
+                "summary": "getOneMessage",
+                "operationId": "getOneMessageUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id2",
+                        "in": "path",
+                        "description": "id2",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Message"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "message-controller"
+                ],
+                "summary": "replaceMessage",
+                "operationId": "replaceMessageUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id2",
+                        "in": "path",
+                        "description": "id2",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "in": "body",
+                        "name": "newMessage",
+                        "description": "newMessage",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Message"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Message"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "message-controller"
+                ],
+                "summary": "deleteMessage",
+                "operationId": "deleteMessageUsingDELETE",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id2",
+                        "in": "path",
+                        "description": "id2",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Message": {
+            "type": "object",
+            "properties": {
+                "author": {
+                    "type": "string"
+                },
+                "endDate": {
+                    "type": "string"
+                },
+                "headline": {
+                    "type": "string"
+                },
+                "hyperlink": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "id2": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "publishingDate": {
+                    "type": "string"
+                },
+                "startDate": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                }
+            },
+            "title": "Message"
+        }
+    }
+}
