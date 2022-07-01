@@ -1,0 +1,253 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "version": "1.0.0",
+    "title": "Open communication API created for CSN",
+    "description": "To be used by CSN for spreading information to stakeholders through external websites.",
+    "x-dcat": {
+      "dcat-catalog": {
+        "about": "https://www.csn.se",
+        "title-sv": "Prototyp Öppna API:er på CSN",
+        "title-en": "Prototype of Open APIs at CSN",
+        "description-sv": "A first prototype of Open APIs at CSN",
+        "publisher": {
+          "about": "https://www.csn.se/om-csn.html",
+          "name": "Centrala Studiestödsnämnden",
+          "type": "Company"
+        },
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "issued": "2022-07-01",
+        "homepage": "https://www.csn.se",
+        "modified": "2022-07-01"
+      },
+      "dcat-dataset": {
+        "about": "https://www.example.se/#Oppna_APIer",
+        "title-sv": "Öppna APIer",
+        "description-sv": "Öppna APIer är en prototyp utvecklad för CSN för att enklare skicka ut data från csn.se",
+        "contactPoint": {
+          "about": "https://www.example.se/#contactC",
+          "name": "Exempel Organisation",
+          "type": "Organization",
+          "email": "admin@exempel.se",
+          "address": "Testgatan 5; 76543; Tranemo; Sverige",
+          "phone": "0799887655"
+        },
+        "keyword-sv": "csn; centrala studiestödsnämnden; api; skola; universitet; komvux",
+        "keyword-en": "csn; api; school; university; komvux ",
+        "theme": "TRAN; EDUC",
+        "issued": "2022-07-05",
+        "spatialUrl": "https://www.geonames.org/6695072/european-union.html",
+        "relation": "www.relateradresursexempelsida.se",
+        "isReferencedBy": "www.exempelreferenssida.se",
+        "temporal": {
+          "startDate": "2022-07-01",
+          "endDate": "2022-09-01"
+        },
+        "accessRights": "Public"
+      },
+      "dcat-dataservice": {
+        "about": "https://www.example.se/#dataserviceC",
+        "title-sv": "Datatjänst C",
+        "endpointURL": "www.datatjanstC.se",
+        "endpointDescription": "www.beskrivningDatatjanstC.se",
+        "contactPoint": {
+          "about": "https://www.example.se/#contactPointC2",
+          "type": "Organization",
+          "name": "Namn på Organisation 2",
+          "email": "kontakt@organization2.se",
+          "phone": "07923568945",
+          "address": "Testvägen 24; 93847; Backa; Sverige"
+        },
+        "keyword-sv": "rest; datatjänst",
+        "licensedoc": {
+          "about": "https://www.example.se/#dataserviceC/license",
+          "title-sv": "namn på licens för DataTjänst",
+          "description-sv": "Beskrivning av licens för Datatjänst"
+        },
+        "accessRights": "Restricted"
+      }
+    }
+  },
+  "paths": {
+    "/messages/{id2}": {
+        "get": {
+            "tags": [
+                "message-controller"
+            ],
+            "operationId": "getOneMessage",
+            "parameters": [
+                {
+                    "name": "id2",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "OK",
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Message"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "put": {
+            "tags": [
+                "message-controller"
+            ],
+            "operationId": "replaceMessage",
+            "parameters": [
+                {
+                    "name": "id2",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            ],
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Message"
+                        }
+                    }
+                },
+                "required": true
+            },
+            "responses": {
+                "200": {
+                    "description": "OK",
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Message"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "delete": {
+            "tags": [
+                "message-controller"
+            ],
+            "operationId": "deleteMessage",
+            "parameters": [
+                {
+                    "name": "id2",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "OK"
+                }
+            }
+        }
+    },
+    "/messages": {
+        "get": {
+            "tags": [
+                "message-controller"
+            ],
+            "operationId": "getAllMessages",
+            "responses": {
+                "200": {
+                    "description": "OK",
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Message"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "post": {
+            "tags": [
+                "message-controller"
+            ],
+            "operationId": "newMessage",
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/Message"
+                        }
+                    }
+                },
+                "required": true
+            },
+            "responses": {
+                "200": {
+                    "description": "OK",
+                    "content": {
+                        "*/*": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Message"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+},
+"components": {
+    "schemas": {
+        "Message": {
+            "type": "object",
+            "properties": {
+                "id2": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "headline": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "hyperlink": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "startDate": {
+                    "type": "string"
+                },
+                "endDate": {
+                    "type": "string"
+                },
+                "publishingDate": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
+}
