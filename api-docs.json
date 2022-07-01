@@ -1,139 +1,54 @@
 {
-    "swagger": "2.0",
+    "openapi": "3.0.1",
     "info": {
-        "description": "To be used by CSN for spreading information to stakeholders through external websites",
-        "version": "1.0",
         "title": "Open communication API created for CSN",
+        "description": "To be used by CSN for spreading information to stakeholders through external websites",
         "termsOfService": "https://www.csn.se/",
         "contact": {
             "name": "David Carlsson & Mikolaj Wagner",
+            "url": "",
             "email": "david.carlsson@csn.se & mikolaj.wagner@csn.se"
         },
         "license": {
             "name": "Apache License",
             "url": "https://apache.org/licenses/LICENSE-2.0"
-        }
+        },
+        "version": "v1.0"
     },
-    "host": "localhost:8081",
-    "basePath": "/",
-    "tags": [
+    "servers": [
         {
-            "name": "message-controller",
-            "description": "Message Controller"
+            "url": "http://localhost:8081",
+            "description": "Generated server url"
         }
     ],
     "paths": {
-        "/messages": {
-            "get": {
-                "tags": [
-                    "message-controller"
-                ],
-                "summary": "getAllMessages",
-                "operationId": "getAllMessagesUsingGET",
-                "produces": [
-                    "*/*"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/Message"
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not Found"
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "message-controller"
-                ],
-                "summary": "newMessage",
-                "operationId": "newMessageUsingPOST",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "*/*"
-                ],
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "newMessage",
-                        "description": "newMessage",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Message"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Message"
-                        }
-                    },
-                    "201": {
-                        "description": "Created"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not Found"
-                    }
-                }
-            }
-        },
         "/messages/{id2}": {
             "get": {
                 "tags": [
                     "message-controller"
                 ],
-                "summary": "getOneMessage",
-                "operationId": "getOneMessageUsingGET",
-                "produces": [
-                    "*/*"
-                ],
+                "operationId": "getOneMessage",
                 "parameters": [
                     {
                         "name": "id2",
                         "in": "path",
-                        "description": "id2",
                         "required": true,
-                        "type": "integer",
-                        "format": "int32"
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Message"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Message"
+                                }
+                            }
                         }
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not Found"
                     }
                 }
             },
@@ -141,51 +56,38 @@
                 "tags": [
                     "message-controller"
                 ],
-                "summary": "replaceMessage",
-                "operationId": "replaceMessageUsingPUT",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "*/*"
-                ],
+                "operationId": "replaceMessage",
                 "parameters": [
                     {
                         "name": "id2",
                         "in": "path",
-                        "description": "id2",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "in": "body",
-                        "name": "newMessage",
-                        "description": "newMessage",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Message"
+                            "type": "integer",
+                            "format": "int32"
                         }
                     }
                 ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Message"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "responses": {
                     "200": {
                         "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Message"
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Message"
+                                }
+                            }
                         }
-                    },
-                    "201": {
-                        "description": "Created"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Not Found"
                     }
                 }
             },
@@ -193,72 +95,112 @@
                 "tags": [
                     "message-controller"
                 ],
-                "summary": "deleteMessage",
-                "operationId": "deleteMessageUsingDELETE",
-                "produces": [
-                    "*/*"
-                ],
+                "operationId": "deleteMessage",
                 "parameters": [
                     {
                         "name": "id2",
                         "in": "path",
-                        "description": "id2",
                         "required": true,
-                        "type": "integer",
-                        "format": "int32"
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "OK"
+                    }
+                }
+            }
+        },
+        "/messages": {
+            "get": {
+                "tags": [
+                    "message-controller"
+                ],
+                "operationId": "getAllMessages",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Message"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "message-controller"
+                ],
+                "operationId": "newMessage",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Message"
+                            }
+                        }
                     },
-                    "204": {
-                        "description": "No Content"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    },
-                    "403": {
-                        "description": "Forbidden"
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Message"
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     },
-    "definitions": {
-        "Message": {
-            "type": "object",
-            "properties": {
-                "author": {
-                    "type": "string"
-                },
-                "endDate": {
-                    "type": "string"
-                },
-                "headline": {
-                    "type": "string"
-                },
-                "hyperlink": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "id2": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "publishingDate": {
-                    "type": "string"
-                },
-                "startDate": {
-                    "type": "string"
-                },
-                "text": {
-                    "type": "string"
+    "components": {
+        "schemas": {
+            "Message": {
+                "type": "object",
+                "properties": {
+                    "id2": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "headline": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "hyperlink": {
+                        "type": "string"
+                    },
+                    "author": {
+                        "type": "string"
+                    },
+                    "startDate": {
+                        "type": "string"
+                    },
+                    "endDate": {
+                        "type": "string"
+                    },
+                    "publishingDate": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
                 }
-            },
-            "title": "Message"
+            }
         }
     }
 }
