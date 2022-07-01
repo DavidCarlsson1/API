@@ -3,24 +3,39 @@
     "info": {
         "title": "Open communication API created for CSN",
         "description": "To be used by CSN for spreading information to stakeholders through external websites",
-        "termsOfService": "https://www.csn.se/",
-        "contact": {
-            "name": "David Carlsson & Mikolaj Wagner",
-            "url": "",
-            "email": "david.carlsson@csn.se & mikolaj.wagner@csn.se"
-        },
-        "license": {
-            "name": "Apache License",
-            "url": "https://apache.org/licenses/LICENSE-2.0"
-        },
-        "version": "v1.0"
-    },
-    "servers": [
-        {
-            "url": "http://localhost:8081",
-            "description": "Generated server url"
+        "x-dcat": {
+            "dcat-catalog": {
+                "about": "https://www.csn.se",
+                "title-sv": "Öppet API skapat för CSN",
+                "description-sv": "API för CSN",
+                "publisher": {
+                    "about": "https://www.csn.se"
+                },
+                "license": "https://apache.org/licenses/LICENSE-2.0"
+            },
+            "dcat-dataset": {
+                "about": "https://www.csn.se",
+                "title-sv": "Datamängd",
+                "description-sv": "Exempel beskrivning datamängd",
+                "creator": {
+                    "about": "https://www.csn.se"
+                },
+                "contactPoint": {
+                    "about": "https://www.csn.se"
+                }
+            },
+            "dcat-distribution": {
+                "about": "https://www.csn.se",
+                "accessURL": "https://www.csn.se",
+                "accessService": "https://www.csn.se"
+            },
+            "dcat-dataservice": {
+                "about": "https://www.csn.se",
+                "title-sv": "Datatjänst",
+                "endpointURL": "https://www.csn.se"
+            }
         }
-    ],
+    },
     "paths": {
         "/public/messages": {
             "get": {
