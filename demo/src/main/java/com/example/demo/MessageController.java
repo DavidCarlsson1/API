@@ -18,35 +18,35 @@ class MessageController {
     @Autowired
     private MessageService messageService;
 
-    @GetMapping("/messages")
+    @GetMapping("/public/messages")
     List<Message> getAllMessages() {
 
         return messageService.findAllMessages();
 
     }
 
-    @PostMapping("/messages")
+    @PostMapping("/admin/messages")
     Message newMessage(@RequestBody Message newMessage) {
 
         return messageService.saveMessage(newMessage);
 
     }
 
-    @GetMapping("/messages/{id2}")
+    @GetMapping("/public/messages/{id2}")
     Message getOneMessage(@PathVariable Integer id2) {
 
         return messageService.findMessageById2(id2);
 
     }
 
-    @PutMapping("/messages/{id2}")
+    @PutMapping("/admin/messages/{id2}")
     Message replaceMessage(@RequestBody Message newMessage, @PathVariable Integer id2) {
 
         return messageService.updateMessageById2(newMessage);
 
     }
 
-    @DeleteMapping("/messages/{id2}")
+    @DeleteMapping("/admin/messages/{id2}")
     void deleteMessage(@PathVariable Integer id2) {
         messageService.deleteMessageById2(id2);
     }
