@@ -8,6 +8,10 @@ import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 
+import org.springdoc.core.GroupedOpenApi;
+
+
+
 @Configuration
 public class OpenApiConfig {
  
@@ -26,21 +30,21 @@ public class OpenApiConfig {
                   .license(new License().name("Apache License").url("https://apache.org/licenses/LICENSE-2.0"))
           );
     }
-/*
+
     @Bean
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
-                .setGroup("com.example.demo")
+                .group("public")
                 .pathsToMatch("/public/**")
+                .pathsToExclude("/admin/**")
                 .build();
     }
 
     @Bean
     public GroupedOpenApi adminApi() {
         return GroupedOpenApi.builder()
-                .setGroup("springshop-admin")
-                .pathsToMatch("/admin/**")
+                .group("admin")
+                .pathsToMatch("/admin/**", "/public/**")
                 .build();
     }
-*/
 }
