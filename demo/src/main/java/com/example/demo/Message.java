@@ -18,6 +18,7 @@ class Message {
     private String startDate;
     private String endDate;
     private String publishingDate;
+    private String logo;
 
     Message() {}
 
@@ -67,6 +68,10 @@ class Message {
         return this.publishingDate;
     }
 
+    public String getLogo() {
+        return this.logo;
+    }
+
     public void setId(String id) {
         this.messageId = id;
     }
@@ -103,6 +108,10 @@ class Message {
         this.publishingDate = publishingDate;
     }
 
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
     @Override
     public boolean equals(Object o) {
 
@@ -115,12 +124,12 @@ class Message {
             && Objects.equals(this.headline, message.headline) && Objects.equals(this.text, message.text) 
             && Objects.equals(this.hyperlink, message.hyperlink) && Objects.equals(this.author, message.author) 
             && Objects.equals(this.startDate, message.startDate) && Objects.equals(this.endDate, message.endDate) 
-            && Objects.equals(this.publishingDate, message.publishingDate);
+            && Objects.equals(this.publishingDate, message.publishingDate) && Objects.equals(this.logo, message.logo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.messageId, this.id2, this.headline, this.text, this.hyperlink, this.author, this.startDate, this.endDate, this.publishingDate);
+        return Objects.hash(this.messageId, this.id2, this.headline, this.text, this.hyperlink, this.author, this.startDate, this.endDate, this.publishingDate, this.logo);
     }
 
     @Override
@@ -128,6 +137,7 @@ class Message {
         return "Message{" + "id=" + this.messageId + ", headline='" + this.headline + ", id2='" + this.id2
         + '\'' + ", text='" + this.text + '\'' + ", hyperlink='" + this.hyperlink + '\'' + ", author='" + this.author 
         + '\'' + ", startDate='" + this.startDate + '\'' + ", endDate='" + this.endDate + '\'' + ", publishingDate='" 
-        + this.publishingDate + '}';
+        + this.publishingDate + '\'' + ", logo='" 
+        + this.logo + '}';
     }
 }

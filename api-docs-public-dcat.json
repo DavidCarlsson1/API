@@ -9,7 +9,8 @@
                 "title-sv": "Öppet API skapat för CSN",
                 "description-sv": "API för CSN",
                 "publisher": {
-                    "about": "https://www.csn.se"
+                    "about": "https://www.csn.se",
+                    "name": "CSNs Catalog"
                 },
                 "license": "https://apache.org/licenses/LICENSE-2.0"
             },
@@ -21,6 +22,9 @@
                     "about": "https://www.csn.se"
                 },
                 "contactPoint": {
+                    "name": "David Carlsson & Mikolaj Wagner",
+                    "type": "Organization",
+                    "email": "david.carlsson@csn.se",
                     "about": "https://www.csn.se"
                 }
             },

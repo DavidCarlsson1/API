@@ -20,14 +20,18 @@ public class OpenApiConfig {
         return new OpenAPI()          
           .info(new Info()
                   .title("Open communication API created for CSN")
-                  .description("To be used by CSN for spreading information to stakeholders through external websites")
+                  .description("This is an API created by the students David Carlsson and Mikolaj Wagner during a summer internship at CSN (the Swedish board of student finance). 
+                  The purpose of the API is to enable and streamline spreading of information from the governal agency to external web pages. This in order to reach stakeholders 
+                  such as students and pupils that would otherwise miss out on important information.")
                   .version("v1.0")
                   .contact(new Contact()
-                          .name("David Carlsson & Mikolaj Wagner")
-                          .url("")
-                          .email("david.carlsson@csn.se & mikolaj.wagner@csn.se"))
-                  .termsOfService("https://www.csn.se/")
-                  .license(new License().name("Apache License").url("https://apache.org/licenses/LICENSE-2.0"))
+                        .name("David Carlsson & Mikolaj Wagner")
+                        .url("")
+                        .email("david.carlsson@csn.se"))
+                  .termsOfService("https://www.csn.se/om-csn/lag-och-ratt.html")
+                  .license(new License()
+                        .name("Apache License")
+                        .url("https://apache.org/licenses/LICENSE-2.0"))
           );
     }
 

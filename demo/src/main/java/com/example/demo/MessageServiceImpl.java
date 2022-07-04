@@ -37,6 +37,8 @@ public class MessageServiceImpl implements MessageService {
         String formattedDate = myDateObj.format(myFormatObj);
         message.setPublishingDate(formattedDate);
 
+        message.setLogo("https://www.csn.se/images/18.7ceb52b315ad72aa59e3830a/csnlogo.svg");
+
         return messageRepository.save(message);
     }
 
@@ -59,6 +61,7 @@ public class MessageServiceImpl implements MessageService {
             messageUpdate.setStartDate(message.getStartDate());
             messageUpdate.setEndDate(message.getEndDate());
             messageUpdate.setPublishingDate(message.getPublishingDate());
+            messageUpdate.setLogo(message.getLogo());
             deleteMessageById2(message.getId2());
             messageRepository.save(messageUpdate);
             return messageUpdate;
