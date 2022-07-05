@@ -19,7 +19,7 @@ public class OpenApiConfig {
     public OpenAPI openApi() {
         return new OpenAPI()          
           .info(new Info()
-                  .title("Open communication API created for CSN")
+                  .title("Open API created for CSN")
                   .description("This is an API created by the students David Carlsson and Mikolaj Wagner during a summer internship at CSN (the Swedish board of student finance). The purpose of the API is to enable and streamline spreading of information from the governal agency to external web pages. This in order to reach stakeholders such as students and pupils that would otherwise miss out on important information.")
                   .version("v1.0")
                   .contact(new Contact()
