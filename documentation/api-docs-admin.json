@@ -1,13 +1,13 @@
 {
     "openapi": "3.0.1",
     "info": {
-        "title": "Open communication API created for CSN",
-        "description": "To be used by CSN for spreading information to stakeholders through external websites",
-        "termsOfService": "https://www.csn.se/",
+        "title": "Open API created for CSN",
+        "description": "This is an API created by the students David Carlsson and Mikolaj Wagner during a summer internship at CSN (the Swedish board of student finance). The purpose of the API is to enable and streamline spreading of information from the governal agency to external web pages. This in order to reach stakeholders such as students and pupils that would otherwise miss out on important information.",
+        "termsOfService": "https://www.csn.se/om-csn/lag-och-ratt.html",
         "contact": {
             "name": "David Carlsson & Mikolaj Wagner",
             "url": "",
-            "email": "david.carlsson@csn.se & mikolaj.wagner@csn.se"
+            "email": "david.carlsson@csn.se"
         },
         "license": {
             "name": "Apache License",
@@ -179,6 +179,10 @@
                         "type": "integer",
                         "format": "int32"
                     },
+                    "shortId": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
                     "headline": {
                         "type": "string"
                     },
@@ -198,6 +202,9 @@
                         "type": "string"
                     },
                     "publishingDate": {
+                        "type": "string"
+                    },
+                    "logo": {
                         "type": "string"
                     },
                     "id": {
