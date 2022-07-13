@@ -11,6 +11,7 @@ class Message {
     private String messageId;
 
     private Integer id2;
+    private Integer shortId;
     private String headline;
     private String text;
     private String hyperlink;
@@ -38,6 +39,10 @@ class Message {
 
     public Integer getId2() {
         return this.id2;
+    }
+
+    public Integer getShortId() {
+        return this.shortId;
     }
 
     public String getHeadline() {
@@ -80,6 +85,10 @@ class Message {
         this.id2 = id2;
     }
 
+    public void setShortId(Integer shortId) {
+        this.shortId = shortId;
+    }
+
     public void setHeadline(String headline) {
         this.headline = headline;
     }
@@ -120,7 +129,7 @@ class Message {
         if (!(o instanceof Message))
         return false;
         Message message = (Message) o;
-        return Objects.equals(this.messageId, message.messageId) && Objects.equals(this.id2, message.id2)
+        return Objects.equals(this.messageId, message.messageId) && Objects.equals(this.id2, message.id2) && Objects.equals(this.shortId, message.shortId)
             && Objects.equals(this.headline, message.headline) && Objects.equals(this.text, message.text) 
             && Objects.equals(this.hyperlink, message.hyperlink) && Objects.equals(this.author, message.author) 
             && Objects.equals(this.startDate, message.startDate) && Objects.equals(this.endDate, message.endDate) 
@@ -129,13 +138,13 @@ class Message {
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.messageId, this.id2, this.headline, this.text, this.hyperlink, this.author, this.startDate, this.endDate, this.publishingDate, this.logo);
+        return Objects.hash(this.messageId, this.id2, this.shortId, this.headline, this.text, this.hyperlink, this.author, this.startDate, this.endDate, this.publishingDate, this.logo);
     }
 
     @Override
     public String toString() {
         return "Message{" + "id=" + this.messageId + ", headline='" + this.headline + ", id2='" + this.id2
-        + '\'' + ", text='" + this.text + '\'' + ", hyperlink='" + this.hyperlink + '\'' + ", author='" + this.author 
+        + '\'' + ", shortId='" + this.shortId + '\'' + ", text='" + this.text + '\'' + ", hyperlink='" + this.hyperlink + '\'' + ", author='" + this.author 
         + '\'' + ", startDate='" + this.startDate + '\'' + ", endDate='" + this.endDate + '\'' + ", publishingDate='" 
         + this.publishingDate + '\'' + ", logo='" 
         + this.logo + '}';

@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+/*
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+*/
 
 @Service
 public class MessageServiceImpl implements MessageService {
@@ -32,10 +34,12 @@ public class MessageServiceImpl implements MessageService {
             message.setId2(1);
         }
 
+        /*
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime myDateObj = LocalDateTime.now();
         String formattedDate = myDateObj.format(myFormatObj);
         message.setPublishingDate(formattedDate);
+        */
 
         message.setLogo("https://www.csn.se/images/18.7ceb52b315ad72aa59e3830a/csnlogo.svg");
 
