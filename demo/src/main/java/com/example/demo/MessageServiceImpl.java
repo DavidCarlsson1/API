@@ -3,7 +3,6 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 /*
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,8 +15,10 @@ public class MessageServiceImpl implements MessageService {
     private MessageRepository messageRepository;
 
     @Override
-    public List<Message> findAllMessages() {
-        return messageRepository.findAll();
+    public MessageList findAllMessages() {
+        MessageList messageList = new MessageList(null);
+        messageList.messages = messageRepository.findAll();
+        return messageList;
     }
 
     @Override
