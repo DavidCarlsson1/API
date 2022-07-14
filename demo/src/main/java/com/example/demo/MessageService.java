@@ -1,10 +1,8 @@
 package com.example.demo;
 
-import java.util.List;
-
 public interface MessageService {
 
-    List<Message> findAllMessages();
+    MessageList findAllMessages();
 
     Message saveMessage(Message message);
 
