@@ -11,6 +11,7 @@ class Message {
     private String messageId;
 
     private Integer id2;
+    private Integer shortId;
     private String headline;
     private String text;
     private String hyperlink;
@@ -18,6 +19,7 @@ class Message {
     private String startDate;
     private String endDate;
     private String publishingDate;
+    private String logo;
 
     Message() {}
 
@@ -37,6 +39,10 @@ class Message {
 
     public Integer getId2() {
         return this.id2;
+    }
+
+    public Integer getShortId() {
+        return this.shortId;
     }
 
     public String getHeadline() {
@@ -67,12 +73,20 @@ class Message {
         return this.publishingDate;
     }
 
+    public String getLogo() {
+        return this.logo;
+    }
+
     public void setId(String id) {
         this.messageId = id;
     }
 
     public void setId2(Integer id2) {
         this.id2 = id2;
+    }
+
+    public void setShortId(Integer shortId) {
+        this.shortId = shortId;
     }
 
     public void setHeadline(String headline) {
@@ -103,6 +117,10 @@ class Message {
         this.publishingDate = publishingDate;
     }
 
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
     @Override
     public boolean equals(Object o) {
 
@@ -111,23 +129,24 @@ class Message {
         if (!(o instanceof Message))
         return false;
         Message message = (Message) o;
-        return Objects.equals(this.messageId, message.messageId) && Objects.equals(this.id2, message.id2)
+        return Objects.equals(this.messageId, message.messageId) && Objects.equals(this.id2, message.id2) && Objects.equals(this.shortId, message.shortId)
             && Objects.equals(this.headline, message.headline) && Objects.equals(this.text, message.text) 
             && Objects.equals(this.hyperlink, message.hyperlink) && Objects.equals(this.author, message.author) 
             && Objects.equals(this.startDate, message.startDate) && Objects.equals(this.endDate, message.endDate) 
-            && Objects.equals(this.publishingDate, message.publishingDate);
+            && Objects.equals(this.publishingDate, message.publishingDate) && Objects.equals(this.logo, message.logo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.messageId, this.id2, this.headline, this.text, this.hyperlink, this.author, this.startDate, this.endDate, this.publishingDate);
+        return Objects.hash(this.messageId, this.id2, this.shortId, this.headline, this.text, this.hyperlink, this.author, this.startDate, this.endDate, this.publishingDate, this.logo);
     }
 
     @Override
     public String toString() {
         return "Message{" + "id=" + this.messageId + ", headline='" + this.headline + ", id2='" + this.id2
-        + '\'' + ", text='" + this.text + '\'' + ", hyperlink='" + this.hyperlink + '\'' + ", author='" + this.author 
+        + '\'' + ", shortId='" + this.shortId + '\'' + ", text='" + this.text + '\'' + ", hyperlink='" + this.hyperlink + '\'' + ", author='" + this.author 
         + '\'' + ", startDate='" + this.startDate + '\'' + ", endDate='" + this.endDate + '\'' + ", publishingDate='" 
-        + this.publishingDate + '}';
+        + this.publishingDate + '\'' + ", logo='" 
+        + this.logo + '}';
     }
 }
