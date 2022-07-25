@@ -127,10 +127,7 @@
                         "content": {
                             "*/*": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Message"
-                                    }
+                                    "$ref": "#/components/schemas/MessageList"
                                 }
                             }
                         }
@@ -209,6 +206,17 @@
                     },
                     "id": {
                         "type": "string"
+                    }
+                }
+            },
+            "MessageList": {
+                "type": "object",
+                "properties": {
+                    "messages": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Message"
+                        }
                     }
                 }
             }
