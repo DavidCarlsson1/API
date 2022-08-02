@@ -53,12 +53,10 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public Message updateMessageById2(Message message) {
-        Message messageUpdate = this.messageRepository.findById2(message.getId2());
+    public Message updateMessageById2(Message message, Integer id2) {
+        Message messageUpdate = this.messageRepository.findById2(id2);
 
         if (messageUpdate != null) {
-            messageUpdate.setId(message.getId());
-            messageUpdate.setId2(message.getId2());
             messageUpdate.setHeadline(message.getHeadline());
             messageUpdate.setText(message.getText());
             messageUpdate.setHyperlink(message.getHyperlink());
@@ -67,7 +65,7 @@ public class MessageServiceImpl implements MessageService {
             messageUpdate.setEndDate(message.getEndDate());
             messageUpdate.setPublishingDate(message.getPublishingDate());
             messageUpdate.setLogo(message.getLogo());
-            deleteMessageById2(message.getId2());
+            deleteMessageById2(messageUpdate.getId2());
             messageRepository.save(messageUpdate);
             return messageUpdate;
         } else {
