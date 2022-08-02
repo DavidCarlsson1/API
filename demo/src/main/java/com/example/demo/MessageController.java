@@ -40,7 +40,7 @@ class MessageController {
     @PutMapping("/admin/messages/{id2}")
     Message replaceMessage(@RequestBody Message newMessage, @PathVariable Integer id2) {
 
-        return messageService.updateMessageById2(newMessage);
+        return messageService.updateMessageById2(newMessage, id2);
 
     }
 
