@@ -10,5 +10,7 @@ interface MessageRepository extends MongoRepository<Message, String> {
     Message findFirstByOrderById2Desc();
 
     Message findById2(Integer id);
+
+    Message findAllByOrderById2Asc();
     
 }

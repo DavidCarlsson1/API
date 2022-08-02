@@ -10,6 +10,6 @@ public interface MessageService {
 
     void deleteMessageById2(Integer id);
 
-    Message updateMessageById2(Message message);
+    Message updateMessageById2(Message message, Integer id2);
 
 }
