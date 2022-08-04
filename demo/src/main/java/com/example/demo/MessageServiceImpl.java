@@ -65,6 +65,7 @@ public class MessageServiceImpl implements MessageService {
             messageUpdate.setEndDate(message.getEndDate());
             messageUpdate.setPublishingDate(message.getPublishingDate());
             messageUpdate.setLogo(message.getLogo());
+            messageUpdate.setTargetGroup(message.getTargetGroup());
             deleteMessageById2(messageUpdate.getId2());
             messageRepository.save(messageUpdate);
             return messageUpdate;
