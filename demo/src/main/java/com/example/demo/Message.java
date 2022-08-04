@@ -20,10 +20,11 @@ class Message {
     private String endDate;
     private String publishingDate;
     private String logo;
+    private String targetGroup;
 
     Message() {}
 
-    Message(String headline, String text, String hyperlink, String author, String startDate, String endDate) {
+    Message(String headline, String text, String hyperlink, String author, String startDate, String endDate, String targetGroup) {
 
         this.headline = headline;
         this.text = text;
@@ -31,6 +32,7 @@ class Message {
         this.author = author;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.targetGroup = targetGroup;
     }
 
     public String getId() {
@@ -77,6 +79,10 @@ class Message {
         return this.logo;
     }
 
+    public String getTargetGroup() {
+        return this.targetGroup;
+    }
+
     public void setId(String id) {
         this.messageId = id;
     }
@@ -121,6 +127,10 @@ class Message {
         this.logo = logo;
     }
 
+    public void setTargetGroup(String targetGroup) {
+        this.targetGroup = targetGroup;
+    }
+
     @Override
     public boolean equals(Object o) {
 
@@ -133,12 +143,13 @@ class Message {
             && Objects.equals(this.headline, message.headline) && Objects.equals(this.text, message.text) 
             && Objects.equals(this.hyperlink, message.hyperlink) && Objects.equals(this.author, message.author) 
             && Objects.equals(this.startDate, message.startDate) && Objects.equals(this.endDate, message.endDate) 
-            && Objects.equals(this.publishingDate, message.publishingDate) && Objects.equals(this.logo, message.logo);
+            && Objects.equals(this.publishingDate, message.publishingDate) && Objects.equals(this.logo, message.logo)
+            && Objects.equals(this.targetGroup, message.targetGroup);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.messageId, this.id2, this.shortId, this.headline, this.text, this.hyperlink, this.author, this.startDate, this.endDate, this.publishingDate, this.logo);
+        return Objects.hash(this.messageId, this.id2, this.shortId, this.headline, this.text, this.hyperlink, this.author, this.startDate, this.endDate, this.publishingDate, this.logo, this.targetGroup);
     }
 
     @Override
@@ -146,7 +157,6 @@ class Message {
         return "Message{" + "id=" + this.messageId + ", headline='" + this.headline + ", id2='" + this.id2
         + '\'' + ", shortId='" + this.shortId + '\'' + ", text='" + this.text + '\'' + ", hyperlink='" + this.hyperlink + '\'' + ", author='" + this.author 
         + '\'' + ", startDate='" + this.startDate + '\'' + ", endDate='" + this.endDate + '\'' + ", publishingDate='" 
-        + this.publishingDate + '\'' + ", logo='" 
-        + this.logo + '}';
+        + this.publishingDate + '\'' + ", logo='" + this.logo + '\'' + ", targetGroup='" + this.targetGroup + '}';
     }
 }
