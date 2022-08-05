@@ -20,11 +20,11 @@ class Message {
     private String endDate;
     private String publishingDate;
     private String logo;
-    private String targetGroup;
+    private String[] targetGroup;
 
     Message() {}
 
-    Message(String headline, String text, String hyperlink, String author, String startDate, String endDate, String targetGroup) {
+    Message(String headline, String text, String hyperlink, String author, String startDate, String endDate, String[] targetGroup) {
 
         this.headline = headline;
         this.text = text;
@@ -79,7 +79,7 @@ class Message {
         return this.logo;
     }
 
-    public String getTargetGroup() {
+    public String[] getTargetGroup() {
         return this.targetGroup;
     }
 
@@ -127,7 +127,7 @@ class Message {
         this.logo = logo;
     }
 
-    public void setTargetGroup(String targetGroup) {
+    public void setTargetGroup(String[] targetGroup) {
         this.targetGroup = targetGroup;
     }
 
